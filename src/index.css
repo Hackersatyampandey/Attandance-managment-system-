@@ -12,11 +12,12 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
-    /* Instagram-inspired brand colors */
-    --instagram-purple: 291 64% 42%;
-    --instagram-pink: 326 100% 64%;
-    --instagram-orange: 25 100% 61%;
-    --instagram-blue: 201 100% 35%;
+    /* Education theme colors */
+    --education-blue: 220 91% 52%;
+    --education-green: 142 76% 36%;
+    --education-orange: 25 95% 53%;
+    --education-purple: 262 83% 58%;
+    --education-red: 0 84% 60%;
 
     /* Card and surface colors */
     --card: 0 0% 100%;
@@ -24,9 +25,9 @@
     --card-border: 0 0% 92%;
 
     /* Interactive colors */
-    --primary: 291 64% 42%;
+    --primary: 220 91% 52%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 291 64% 38%;
+    --primary-hover: 220 91% 48%;
 
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 20%;
@@ -34,7 +35,7 @@
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 326 100% 64%;
+    --accent: 142 76% 36%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -44,12 +45,17 @@
     --border: 0 0% 90%;
     --input: 0 0% 97%;
     --input-border: 0 0% 85%;
-    --ring: 291 64% 42%;
+    --ring: 220 91% 52%;
+
+    /* Status colors */
+    --status-present: 142 76% 36%;
+    --status-absent: 0 84% 60%;
+    --status-late: 25 95% 53%;
 
     /* Custom gradients */
-    --gradient-instagram: linear-gradient(135deg, hsl(var(--instagram-purple)), hsl(var(--instagram-pink)), hsl(var(--instagram-orange)));
-    --gradient-story: linear-gradient(45deg, hsl(var(--instagram-purple)), hsl(var(--instagram-pink)));
-    --gradient-button: linear-gradient(135deg, hsl(var(--instagram-pink)), hsl(var(--instagram-orange)));
+    --gradient-education: linear-gradient(135deg, hsl(var(--education-blue)), hsl(var(--education-purple)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--education-green)), hsl(var(--education-blue)));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--education-orange)), hsl(var(--education-red)));
 
     /* Shadows */
     --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -129,17 +135,17 @@
 }
 
 @layer components {
-  /* Instagram-style gradient backgrounds */
-  .gradient-instagram {
-    background: var(--gradient-instagram);
+  /* Education-themed gradient backgrounds */
+  .gradient-education {
+    background: var(--gradient-education);
   }
 
-  .gradient-story {
-    background: var(--gradient-story);
+  .gradient-success {
+    background: var(--gradient-success);
   }
 
-  .gradient-button {
-    background: var(--gradient-button);
+  .gradient-warning {
+    background: var(--gradient-warning);
   }
 
   /* Custom shadows */
@@ -164,28 +170,28 @@
     transition: var(--transition-bounce);
   }
 
-  /* Instagram-style story ring */
-  .story-ring {
-    background: var(--gradient-story);
-    padding: 3px;
-    border-radius: 50%;
+  /* Attendance status styles */
+  .status-present {
+    @apply bg-green-100 text-green-800 border border-green-200;
   }
 
-  .story-ring-inner {
-    background: white;
-    border-radius: 50%;
-    padding: 3px;
+  .status-absent {
+    @apply bg-red-100 text-red-800 border border-red-200;
   }
 
-  /* Post hover effects */
-  .post-hover {
-    @apply transition-smooth hover:scale-105 hover:shadow-medium;
+  .status-late {
+    @apply bg-orange-100 text-orange-800 border border-orange-200;
   }
 
-  /* Instagram button styles */
-  .btn-instagram {
-    background: var(--gradient-button);
+  /* Education button styles */
+  .btn-education {
+    background: var(--gradient-education);
     @apply text-white font-medium px-6 py-2 rounded-lg transition-smooth hover:scale-105 hover:shadow-medium;
+  }
+
+  .btn-success {
+    background: var(--gradient-success);
+    @apply text-white font-medium px-4 py-2 rounded-lg transition-smooth hover:scale-105;
   }
 
   /* Custom scrollbar */
@@ -205,5 +211,15 @@
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--primary));
+  }
+
+  /* Attendance card hover effects */
+  .attendance-card {
+    @apply transition-smooth hover:scale-105 hover:shadow-medium cursor-pointer;
+  }
+
+  /* Login form styles */
+  .login-card {
+    @apply bg-card shadow-strong border border-card-border rounded-2xl p-8;
   }
 }

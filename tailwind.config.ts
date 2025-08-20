@@ -28,11 +28,18 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				
-				instagram: {
-					purple: 'hsl(var(--instagram-purple))',
-					pink: 'hsl(var(--instagram-pink))',
-					orange: 'hsl(var(--instagram-orange))',
-					blue: 'hsl(var(--instagram-blue))',
+				education: {
+					blue: 'hsl(var(--education-blue))',
+					green: 'hsl(var(--education-green))',
+					orange: 'hsl(var(--education-orange))',
+					purple: 'hsl(var(--education-purple))',
+					red: 'hsl(var(--education-red))',
+				},
+				
+				status: {
+					present: 'hsl(var(--status-present))',
+					absent: 'hsl(var(--status-absent))',
+					late: 'hsl(var(--status-late))',
 				},
 				
 				primary: {
