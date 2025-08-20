@@ -1,42 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Instagram-inspired design system with beautiful gradients and modern styling */
 
 @layer base {
   :root {
+    /* Base colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 0%;
 
+    /* Instagram-inspired brand colors */
+    --instagram-purple: 291 64% 42%;
+    --instagram-pink: 326 100% 64%;
+    --instagram-orange: 25 100% 61%;
+    --instagram-blue: 201 100% 35%;
+
+    /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 0%;
+    --card-border: 0 0% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Interactive colors */
+    --primary: 291 64% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 291 64% 38%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 326 100% 64%;
+    --accent-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Form elements */
+    --border: 0 0% 90%;
+    --input: 0 0% 97%;
+    --input-border: 0 0% 85%;
+    --ring: 291 64% 42%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Custom gradients */
+    --gradient-instagram: linear-gradient(135deg, hsl(var(--instagram-purple)), hsl(var(--instagram-pink)), hsl(var(--instagram-orange)));
+    --gradient-story: linear-gradient(45deg, hsl(var(--instagram-purple)), hsl(var(--instagram-pink)));
+    --gradient-button: linear-gradient(135deg, hsl(var(--instagram-pink)), hsl(var(--instagram-orange)));
 
-    --radius: 0.5rem;
+    /* Shadows */
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 12px;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +124,86 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Instagram-style gradient backgrounds */
+  .gradient-instagram {
+    background: var(--gradient-instagram);
+  }
+
+  .gradient-story {
+    background: var(--gradient-story);
+  }
+
+  .gradient-button {
+    background: var(--gradient-button);
+  }
+
+  /* Custom shadows */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Instagram-style story ring */
+  .story-ring {
+    background: var(--gradient-story);
+    padding: 3px;
+    border-radius: 50%;
+  }
+
+  .story-ring-inner {
+    background: white;
+    border-radius: 50%;
+    padding: 3px;
+  }
+
+  /* Post hover effects */
+  .post-hover {
+    @apply transition-smooth hover:scale-105 hover:shadow-medium;
+  }
+
+  /* Instagram button styles */
+  .btn-instagram {
+    background: var(--gradient-button);
+    @apply text-white font-medium px-6 py-2 rounded-lg transition-smooth hover:scale-105 hover:shadow-medium;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
   }
 }
