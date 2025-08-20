@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 const repoName = 'Attandance-managment-system';
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? `/${repoName}/` : '/',
+  base: '/',
   server: {
     host: "::",
     port: 8080,
